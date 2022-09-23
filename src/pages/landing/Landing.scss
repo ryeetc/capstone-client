@@ -1,0 +1,47 @@
+.landing {
+    background-color: grey;
+    border-radius: 10px;
+    margin: 1rem 10% 0rem 10%;
+
+    &__top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 1rem;
+    }
+
+    &__logo {
+        width: 10rem;
+        border-radius: 50%;
+    }
+
+    &__welcome{
+        margin: 0rem;
+    }
+
+    &__intro {
+        margin: 0rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__cta {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+        align-items: center;
+    }
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

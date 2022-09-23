@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+
+    &__profile {
+        display: flex;
+        justify-content: center;
+        width: 20rem;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 20rem;
+    }
+
+    &__logo {
+        width: 3rem;
+        border-radius: 50%;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: right;
+        gap: 1rem;
+        width: 20rem;
+    }
+}
