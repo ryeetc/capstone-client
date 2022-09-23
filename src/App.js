@@ -14,9 +14,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Landing />}/>
-          <Route path="/:userid" element={<Home />}/>
-          <Route path="/:userid/add" element={<AddMed />}/>
-          <Route path="/:userid/log" element={<Log />}/>
+          <Route path="/profile" element={<Home />}/>
+          <Route path="/add" element={<AddMed />}/>
+          <Route path="/log" element={<Log />}/>
         </Routes>
       </BrowserRouter>
     </div>

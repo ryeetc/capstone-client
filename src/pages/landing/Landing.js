@@ -16,10 +16,9 @@ const Landing = () => {
             password: pass
         })
             .then((response)=>{
-                const id = response.data.data[0].id
                 if (response.data.token.length > 20) {
                     localStorage.authToken = response.data.token
-                    navigate(`/${id}`)
+                    navigate(`/profile`)
                 }
     
             })

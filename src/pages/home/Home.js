@@ -11,12 +11,12 @@ const Home = () => {
     const [meds, setMeds] = useState(null)
 
     const handleAddClick = ()=>{
-        navigate(`/${userid}/add`)
+        navigate(`/add`)
     }
     
 
     useEffect(()=>{
-        const user = axios.get(`http://localhost:8080/${userid}`, {
+        const user = axios.get(`http://localhost:8080/meds`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
