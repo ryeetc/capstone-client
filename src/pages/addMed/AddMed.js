@@ -1,7 +1,7 @@
 import "./AddMed.scss"
-import { useParams, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import { useState, useRef } from "react"
+
 
 const AddMed = () => {
     
@@ -13,20 +13,24 @@ const AddMed = () => {
     
         const name = e.target.medname.value
         const dosage = e.target.dosage.value
-        const interval = e.target.select.value
+        const period = e.target.select.value
+        const number = e.target.number.value
+        const interval = `Every ${number} ${period}`
         const amount = e.target.amount.value
 
         axios.post(`http://localhost:8080/add`,{
             "name": name,
             "amount": amount,
             "dosage": dosage,
-            "interval": interval
+            "time_interval": interval
         }, { headers: {
             Authorization: `Bearer ${token}`
         },})
             .then((response)=>{
                 navigate(`/profile`)
             })
+
+        
     
     }
 
@@ -48,7 +52,7 @@ const AddMed = () => {
                 </label>
                 <label className="add__form--label interval"> Interval
                     <label className="interval__label">Every
-                        <input type="number" className="interval__option"></input>
+                        <input type="number" name="number" className="interval__option"></input>
                     </label>
                     <select className="interval__select" name="select">
                         <option className="select__option" value="Hour(s)">Hour(s)</option>

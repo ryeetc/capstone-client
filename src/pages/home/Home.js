@@ -1,12 +1,11 @@
 import "./Home.scss"
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import MedCard from "../../components/medCard/MedCard"
 
 const Home = () => {
     const navigate = useNavigate()
-    const {userid} = useParams()
     const token = localStorage.authToken
     const [meds, setMeds] = useState(null)
 
@@ -23,11 +22,9 @@ const Home = () => {
         })
         user
             .then((response)=>{
-                console.log(response.data)
                 setMeds(response.data)
-                console.log(meds)
             })
-    }, [])
+    }, [token])
 
     if(!meds) {
         return (
