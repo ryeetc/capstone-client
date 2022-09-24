@@ -1,7 +1,7 @@
 import "./MedCard.scss"
 import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 const MedCard = ({med}) => {
     const token = localStorage.authToken
@@ -28,10 +28,13 @@ const MedCard = ({med}) => {
     }
 
 
-    const handleTaken = () => {
+    const handleTaken = (e) => {
+        e.preventDefault()
+
         
+      
         axios.post(`http://localhost:8080/log/post`,{
-            "comment": "comment",
+            "comment": e.target.comment.value,
             "medid": med_id
         }, { headers: {
             Authorization: `Bearer ${token}`
@@ -48,9 +51,10 @@ const MedCard = ({med}) => {
                         medArray.push(med)
                     }
                 })
+                window.location.reload()
                        
             })
-           
+        
         
     }
    
@@ -91,7 +95,7 @@ const MedCard = ({med}) => {
             console.log(error)
         })
 
-    },[setSeconds, countdownDate])
+    },[setSeconds, countdownDate, handleTaken])
 
     if (!countdownDate || seconds === null) {
         return (
@@ -101,10 +105,6 @@ const MedCard = ({med}) => {
             </div>
             <div className="med__div">
                 <h3 className="med__name">{medname}</h3>
-            </div>
-            <div className="med__info">
-                {/* <span className="med__span">{meddose}</span>
-                <span className="med__span">{amount}</span> */}
             </div>
             <div className="med__button--holder">
                 <button className="med__button" onClick={handleTaken}>Taken</button>
@@ -122,13 +122,16 @@ const MedCard = ({med}) => {
                 <h3 className="med__name">{medname}</h3>
             </div>
             <div className="med__info">
-                {/* <span className="med__span">{meddose}</span>
-                <span className="med__span">{amount}</span> */}
                 <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}`}</span>
             </div>
-            <div className="med__button--holder">
-                <button className="med__button" onClick={handleTaken}>Taken</button>
-            </div>
+            <form className="med__form" onSubmit={handleTaken}>
+                <div className="med__comment">
+                    <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
+                </div>
+                <div className="med__button--holder">
+                    <button className="med__button">Taken</button>
+                </div>
+            </form>
         </main>
 
     )

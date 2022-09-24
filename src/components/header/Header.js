@@ -1,26 +1,59 @@
 import "./Header.scss"
 import Logo from "../../assets/images/Logo.png"
-import { NavLink } from "react-router-dom"
+import {  NavLink } from "react-router-dom"
+
 
 
 
 const Header = () => {
-    return (
-        <header className="header">
-            <div className="header__left">
-                <span className="header__name">MedTrack</span>
-                <img src={Logo} alt="Logo" className="header__logo"></img>
-            </div>
-            <div className="header__profile">
-                <span className="header__welcome">Welcome back, User</span>
-            </div>
-            <nav className="header__nav">
-                <NavLink>Profile</NavLink>
-                <NavLink>Add Medication</NavLink>
-                <NavLink>Settings</NavLink>
-            </nav>
-        </header>
-    )
+
+    const token = localStorage.getItem("authToken")
+
+
+    const handleLogout = ()=>{
+        localStorage.removeItem("authToken")
+    }
+
+    const renderLoggedIn = () => {
+        return (
+            <header className="header">
+                <div className="header__left">
+                    <span className="header__name">MedTrack</span>
+                    <img src={Logo} alt="Logo" className="header__logo"></img>
+                </div>
+                <nav className="header__nav">
+                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink to="/add">Add Med</NavLink>
+                    <NavLink to="/" onClick={handleLogout}>Logout</NavLink>
+                </nav>
+            </header>
+        )
+    }
+
+    const renderLoggedOut = () => {
+        return (
+            <header className="header">
+                <div className="header__left">
+                    <span className="header__name">MedTrack</span>
+                    <img src={Logo} alt="Logo" className="header__logo"></img>
+                </div>
+                <nav className="header__nav">
+                    <NavLink to="/">Login</NavLink>
+                    <NavLink to="/register">Sign Up</NavLink>
+                </nav>
+            </header>
+        )
+    }
+
+ 
+    if(!token) {
+        return renderLoggedOut()
+
+    } else if (token) {
+        return renderLoggedIn()
+    }
+
+    
 }
 
 export default Header
