@@ -5,6 +5,7 @@ import Home from './pages/home/Home';
 import AddMed from './pages/addMed/AddMed';
 import Log from './pages/log/Log';
 import Register from './pages/register/Register';
+import EditModal from './components/editModal/EditModal';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/profile" element={<Home />}/>
           <Route path="/add" element={<AddMed />}/>
           <Route path="/log" element={<Log />}/>
+          <Route path="/edit/:id" element={<EditModal />}/>
         </Routes>
       </BrowserRouter>
     </div>

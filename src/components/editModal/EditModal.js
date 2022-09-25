@@ -1,0 +1,71 @@
+import axios from "axios"
+import "./EditModal.scss"
+import { useNavigate, useParams } from "react-router-dom"
+import Header from "../header/Header"
+
+const EditModal = () => {
+    const {id} = useParams()
+    const navigate = useNavigate()
+    const token = localStorage.getItem("authToken")
+    const medid = id
+
+    const handleCancel = () => {
+        navigate("/profile")
+    }
+
+    const handleEditSubmit = (e) => {
+        e.preventDefault()
+        const name = e.target.medname.value
+        const dose = e.target.dosage.value
+        const number = e.target.number.value
+        const per = e.target.select.value
+        const amt = e.target.amount.value
+        const int = `Every ${number} ${per}`
+        axios.patch("http://localhost:8080/edit", {
+            "amount": amt,
+            "med_name": name,
+            "dosage": dose,
+            "time_interval": int
+        }, { headers: {
+            Authorization: `Bearer ${token}`,
+            id: medid
+        }, } )
+        navigate("/profile")
+
+    }
+    return (
+        <div className="edit-modal">
+            <Header />
+            <main className="edit">
+                <div className="edit__title--holder">
+                    <h1 className="edit__title">Edit Medication Info</h1>
+                </div>
+                <form className="edit__form" onSubmit={handleEditSubmit}>
+                    <label className="edit__form--label"> Medication Name
+                        <input name="medname" className="edit__form--input" ></input>
+                    </label>
+                    <label className="edit__form--label"> Dosage
+                        <input name="dosage" className="edit__form--input" ></input>
+                    </label>
+                    <label className="edit__form--label interval"> Interval
+                        <label className="edit-interval__label">Every
+                            <input type="number" name="number" className="interval__option" ></input>
+                        </label>
+                        <select className="edit-interval__select" name="select">
+                            <option className="select__option hour" value="Hour(s)">Hour(s)</option>
+                            <option className="select__option day" value="Day(s)">Day(s)</option>
+                            <option className="select__option week" value="Week(s)">Week(s)</option>
+                        </select>
+                    </label>
+                    <label className="edit__form--label"> Amount (optional)
+                        <input name="amount" className="add__form--input" ></input>
+                    </label>
+                    <button className="edit__form--submit">Confirm Edit</button>
+                </form>
+                <button className="edit__form--cancel" onClick={handleCancel}>Cancel Edit</button>
+            </main>
+        </div>
+    )
+}
+
+export default EditModal

@@ -38,14 +38,8 @@ const AddMed = () => {
             .then((response)=>{
                 navigate(`/profile`)
             })
-
-        
     
     }
-
-
-
-   
     
     return (
         <div>

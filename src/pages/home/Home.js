@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import MedCard from "../../components/medCard/MedCard"
 import Header from "../../components/header/Header"
+import EditModal from "../../components/editModal/EditModal"
+import { v4 as uuid } from 'uuid';
 
 const Home = () => {
+    let refresh = uuid()
     const navigate = useNavigate()
     const token = localStorage.authToken
     const [meds, setMeds] = useState(null)
@@ -16,7 +19,7 @@ const Home = () => {
             id: id
         }, }) 
         .then(()=>{
-            window.location.reload()
+            refresh = uuid()
         })
         
     }
@@ -29,7 +32,6 @@ const Home = () => {
         navigate("/log")
     }
     
-
     useEffect(()=>{
         if(!token) {
             navigate("/")
@@ -54,14 +56,20 @@ const Home = () => {
         )
     }
 
+
+
+    const handleEditClick = (med) => {
+        navigate(`/edit/${med.id}`)
+        
+    }
    
     return (
-        <div>
+        <div key={refresh}>
             <Header />
             <div className="home">
                 {meds.map((med)=>{
                     return (
-                        <MedCard key={med.id} medname={med.med_name} med={med} handleDeleteClick={handleDeleteClick} />
+                        <MedCard key={med.id} handleEditClick={handleEditClick} medname={med.med_name} med={med} handleDeleteClick={handleDeleteClick} />
                     )
                 })}
                 <div className="home__add">

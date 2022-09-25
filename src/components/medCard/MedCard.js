@@ -3,12 +3,13 @@ import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-const MedCard = ({med, handleDeleteClick}) => {
+const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
+
     const token = localStorage.authToken
     const medname = med.med_name
     const interval = med.time_interval
     const med_id = med.id
-    const amount = med.amount
+    let amount = med.amount
     const intervalArray = interval.split(" ")
     const timeperiod = intervalArray[1]
     const period = intervalArray[2] 
@@ -28,13 +29,13 @@ const MedCard = ({med, handleDeleteClick}) => {
         int = timeperiod * 168 * 60 * 60 * 1000
     }
 
-
-    const handleEditClick = () => {
-
-    }
-
     const handleTaken = (e) => {
         e.preventDefault()
+        if(amount = 0) {
+            amount = amount
+        } else {
+            amount = amount--
+        }
         let comm = e.target.comment.value
         if (comm === undefined) {
             comm = ""
@@ -47,7 +48,7 @@ const MedCard = ({med, handleDeleteClick}) => {
         }, })
         
         axios.patch("http://localhost:8080/edit/amt", {
-            "amount": amount - 1
+            "amount": amount
         }, { headers: {
             Authorization: `Bearer ${token}`,
             id: med_id
@@ -137,9 +138,11 @@ const MedCard = ({med, handleDeleteClick}) => {
             </div>
             <div className="med__info">
                 <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}`}</span>
-                <span className="med__span">{amount}</span>
+                
             </div>
-            
+            <div className="med__amt">
+                <span className="med__span">{amount} left</span>
+            </div>
             <form className="med__form" onSubmit={handleTaken}>
                 <div className="med__comment">
                     <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
@@ -149,7 +152,7 @@ const MedCard = ({med, handleDeleteClick}) => {
                 </div>
             </form>
             <div className="edit__delete">
-                <button onClick={handleEditClick} className="edit__button">Edit</button>
+                <button onClick={()=>{handleEditClick(med)}} className="edit__button">Edit</button>
                 <button onClick={()=>{handleDeleteClick(med_id)}} className="delete__button">Delete</button>
             </div>
         </main>
