@@ -10,6 +10,17 @@ const Home = () => {
     const token = localStorage.authToken
     const [meds, setMeds] = useState(null)
 
+    const handleDeleteClick = (id) => {
+        axios.delete("http://localhost:8080/delete/med", { headers: {
+            Authorization: `Bearer ${token}`,
+            id: id
+        }, }) 
+        .then(()=>{
+            window.location.reload()
+        })
+        
+    }
+
     const handleAddClick = ()=>{
         navigate(`/add`)
     }
@@ -50,7 +61,7 @@ const Home = () => {
             <div className="home">
                 {meds.map((med)=>{
                     return (
-                        <MedCard key={med.id} medname={med.med_name} med={med} />
+                        <MedCard key={med.id} medname={med.med_name} med={med} handleDeleteClick={handleDeleteClick} />
                     )
                 })}
                 <div className="home__add">

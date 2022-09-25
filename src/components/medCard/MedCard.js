@@ -3,11 +3,12 @@ import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-const MedCard = ({med}) => {
+const MedCard = ({med, handleDeleteClick}) => {
     const token = localStorage.authToken
     const medname = med.med_name
     const interval = med.time_interval
     const med_id = med.id
+    const amount = med.amount
     const intervalArray = interval.split(" ")
     const timeperiod = intervalArray[1]
     const period = intervalArray[2] 
@@ -28,17 +29,29 @@ const MedCard = ({med}) => {
     }
 
 
+    const handleEditClick = () => {
+
+    }
+
     const handleTaken = (e) => {
         e.preventDefault()
-
-        
-      
+        let comm = e.target.comment.value
+        if (comm === undefined) {
+            comm = ""
+        }
         axios.post(`http://localhost:8080/log/post`,{
-            "comment": e.target.comment.value,
+            "comment": comm,
             "medid": med_id
         }, { headers: {
             Authorization: `Bearer ${token}`
-        }, }) 
+        }, })
+        
+        axios.patch("http://localhost:8080/edit/amt", {
+            "amount": amount - 1
+        }, { headers: {
+            Authorization: `Bearer ${token}`,
+            id: med_id
+        }, } )
             
         axios.get(`http://localhost:8080/log`,{ headers: {
             Authorization: `Bearer ${token}`
@@ -54,8 +67,6 @@ const MedCard = ({med}) => {
                 window.location.reload()
                        
             })
-        
-        
     }
    
     useEffect(()=>{
@@ -70,8 +81,6 @@ const MedCard = ({med}) => {
                 if (med.med_id === med_id) {
                     medArray.push(med)
                 }
-                
-            
             })
 
             setCountdownDate(new Date(medArray[medArray.length-1].date_taken).getTime() + int)
@@ -95,7 +104,7 @@ const MedCard = ({med}) => {
             console.log(error)
         })
 
-    },[setSeconds, countdownDate, handleTaken])
+    },[setSeconds, countdownDate, handleTaken, handleDeleteClick])
 
     if (!countdownDate || seconds === null) {
         return (
@@ -106,9 +115,14 @@ const MedCard = ({med}) => {
             <div className="med__div">
                 <h3 className="med__name">{medname}</h3>
             </div>
-            <div className="med__button--holder">
-                <button className="med__button" onClick={handleTaken}>Taken</button>
-            </div>
+            <form className="med__form" onSubmit={handleTaken}>
+                <div className="med__comment">
+                    <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
+                </div>
+                <div className="med__button--holder">
+                    <button className="med__button">Taken</button>
+                </div>
+            </form>
         </main>
         )
     }
@@ -123,7 +137,9 @@ const MedCard = ({med}) => {
             </div>
             <div className="med__info">
                 <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}`}</span>
+                <span className="med__span">{amount}</span>
             </div>
+            
             <form className="med__form" onSubmit={handleTaken}>
                 <div className="med__comment">
                     <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
@@ -132,6 +148,10 @@ const MedCard = ({med}) => {
                     <button className="med__button">Taken</button>
                 </div>
             </form>
+            <div className="edit__delete">
+                <button onClick={handleEditClick} className="edit__button">Edit</button>
+                <button onClick={()=>{handleDeleteClick(med_id)}} className="delete__button">Delete</button>
+            </div>
         </main>
 
     )
