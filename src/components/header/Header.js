@@ -22,9 +22,9 @@ const Header = () => {
                     <img src={Logo} alt="Logo" className="header__logo"></img>
                 </div>
                 <nav className="header__nav">
-                    <NavLink to="/profile">Profile</NavLink>
-                    <NavLink to="/add">Add Med</NavLink>
-                    <NavLink to="/" onClick={handleLogout}>Logout</NavLink>
+                    <NavLink className="nav__link" to="/profile">Profile</NavLink>
+                    <NavLink className="nav__link" to="/add">Add Med</NavLink>
+                    <NavLink className="nav__link" to="/" onClick={handleLogout}>Logout</NavLink>
                 </nav>
             </header>
         )
@@ -38,8 +38,8 @@ const Header = () => {
                     <img src={Logo} alt="Logo" className="header__logo"></img>
                 </div>
                 <nav className="header__nav">
-                    <NavLink to="/">Login</NavLink>
-                    <NavLink to="/register">Sign Up</NavLink>
+                    <NavLink className="nav__link" to="/">Login</NavLink>
+                    <NavLink className="nav__link" to="/register">Sign Up</NavLink>
                 </nav>
             </header>
         )

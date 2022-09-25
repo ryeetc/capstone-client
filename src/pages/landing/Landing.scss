@@ -1,23 +1,37 @@
 .landing {
-    background-color: grey;
+    background-color: #f5f5f5;
     border-radius: 10px;
     margin: 1rem 10% 0rem 10%;
+    color: 	#353839;
+    padding: 1rem;
+    box-shadow: 
+    5px 5px 10px 0 rgba(0, 0, 0, 0.18),
+    -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
 
     &__top {
         display: flex;
+        padding: 1rem;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
         gap: 1rem;
+        box-shadow: 
+        5px 5px 10px 0 rgba(0, 0, 0, 0.18),
+        -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
     }
 
     &__logo {
-        width: 10rem;
+        margin-top: -2rem;
+        width: 8rem;
         border-radius: 50%;
     }
 
     &__welcome{
         margin: 0rem;
+        margin-top: -3rem;
+        text-align: center;
+        
     }
 
     &__intro {
@@ -25,23 +39,70 @@
     }
 
     &__form {
+        box-shadow: 
+    5px 5px 10px 0 rgba(0, 0, 0, 0.18),
+    -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
     }
 
     &__cta {
+        padding: 1rem;
         display: flex;
         flex-direction: column;
-        margin-top: 3rem;
         align-items: center;
+        
     }
 }
 
-label{
+.landing__form--label{
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.landing__form--input {
+    margin-top: 0.5rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 0.5rem;
+    border: none;
+    color:#353839;
+    border: 3px solid #f5f5f5;
+    box-shadow: 
+    inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
+    inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
+    5px 5px 10px 0 rgba(0, 0, 0, 0.1),
+        -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+   
+}
+
+.landing__form--button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    color:#353839;
+    font-size: 1rem;
+    border: 3px solid #f5f5f5;
+    box-shadow: 
+    5px 5px 10px 0 rgba(0, 0, 0, 0.18),
+    -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+    &:hover {
+        box-shadow: 
+    inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
+    inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
+    1px 1px 5px 0 rgba(0, 0, 0, 0.18),
+    -1px -1px 5px 0 rgba(255, 255, 255, 0.8);
+    }
+}
+
+.landing__cta {
+    cursor: pointer;
 }
 

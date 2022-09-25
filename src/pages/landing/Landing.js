@@ -8,6 +8,10 @@ const Landing = () => {
 
     const navigate = useNavigate()
 
+    const toSignup = () => {
+        navigate("/register")
+    }
+
     const handleLoginClick = (event) => {
         event.preventDefault()
         const email = event.target.email.value
@@ -39,14 +43,14 @@ const Landing = () => {
                 </div>
                 <form className="landing__form" onSubmit={handleLoginClick}>
                     <label className="landing__form--label"> Enter Your Email
-                        <input name="email" className="landing__form--input" placeholder="Please enter a valid email"></input>
+                        <input name="email" className="landing__form--input" placeholder="Enter email"></input>
                     </label>
                     <label className="landing__form--label"> Enter Your Password
-                        <input name="password" className="landing__form--input" placeholder="Please enter your password"></input>
+                        <input name="password" className="landing__form--input" placeholder="Enter password"></input>
                     </label>
                     <button className="landing__form--button" >Sign In</button>
                 </form>
-                <div className="landing__cta">
+                <div className="landing__cta" onClick={toSignup}>
                     <span className="landing__cta--label">No account?</span>
                     <span className="landing__cta--label">Sign up here</span>
                 </div>

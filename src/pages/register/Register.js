@@ -48,19 +48,19 @@ const Register = () => {
                 </div>
                 <form className="register__form" onSubmit={handleRegisterClick}>
                     <label className="register__form--label"> Enter Your Email
-                        <input name="email" className="register__form--input" placeholder="Please enter a valid email"></input>
+                        <input name="email" className="register__form--input" placeholder="Enter email"></input>
                     </label>
                     <label className="register__form--label"> Enter Your First Name
-                        <input name="first_name" className="register__form--input" placeholder="Please enter a valid email"></input>
+                        <input name="first_name" className="register__form--input" placeholder="Enter First Name"></input>
                     </label>
                     <label className="register__form--label"> Enter Your Last Name
-                        <input name="last_name" className="register__form--input" placeholder="Please enter a valid email"></input>
+                        <input name="last_name" className="register__form--input" placeholder="Enter Last Name"></input>
                     </label>
                     <label className="register__form--label"> Enter Your Password
-                        <input type="password" name="password" className="register__form--input pass" placeholder="Please enter your password"></input>
+                        <input type="password" name="password" className="register__form--input pass" placeholder="Enter password"></input>
                     </label>
                     <label className="register__form--label"> Confirm Your Password
-                        <input type="password" name="confirm" className="register__form--input pass" placeholder="Please enter your password"></input>
+                        <input type="password" name="confirm" className="register__form--input pass" placeholder="Confirm password"></input>
                     </label>
                     <button className="register__form--button" >Register</button>
                 </form>
