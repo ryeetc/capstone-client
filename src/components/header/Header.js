@@ -39,7 +39,7 @@ const Header = () => {
                 </div>
                 <nav className="header__nav">
                     <NavLink className="nav__link" to="/">Login</NavLink>
-                    <NavLink className="nav__link" to="/register">Sign Up</NavLink>
+                    <NavLink className="nav__link" to="/register">Register</NavLink>
                 </nav>
             </header>
         )

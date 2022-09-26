@@ -1,6 +1,11 @@
 import "./Logcard.scss"
 
 const Logcard = ({logex}) => {
+
+    const options = {month: 'short', weekday: 'short', year: "numeric", day: "numeric"}
+
+    let timestamp = new Date(logex.date_taken)
+    let time = timestamp.toLocaleTimeString('en-US', options)
     
     return (
         <div className="logcard">
@@ -10,7 +15,7 @@ const Logcard = ({logex}) => {
             <div className="logcard__content">
                 <span className="logcard__content--span">{logex.dosage}</span>
                 <span className="logcard__content--span">{logex.comment}</span>
-                <span className="logcard__content--span">{logex.date_taken}</span>
+                <span className="logcard__content--span">{time}</span>
             </div>
         </div>
     )

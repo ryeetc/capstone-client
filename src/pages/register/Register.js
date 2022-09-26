@@ -42,25 +42,24 @@ const Register = () => {
             <Header />
             <main className="register">
                 <div className="register__top">
-                    <img className="register__logo" src={Logo} alt="Logo"></img>
-                    <h1 className="register__welcome">Register</h1>
-                    <p className="register__intro">MedTrack is your virtual pillbox</p>
+                    <img className="register__logo rotate" src={Logo} alt="Logo"></img>
+                    <h1 className="register__welcome">Register for MedTrack</h1>
                 </div>
                 <form className="register__form" onSubmit={handleRegisterClick}>
                     <label className="register__form--label"> Enter Your Email
-                        <input name="email" className="register__form--input" placeholder="Enter email"></input>
+                        <input autoComplete="off" name="email" type="email" className="register__form--input" placeholder="Enter email"></input>
                     </label>
                     <label className="register__form--label"> Enter Your First Name
-                        <input name="first_name" className="register__form--input" placeholder="Enter First Name"></input>
+                        <input autoComplete="off" name="first_name" className="register__form--input" placeholder="Enter First Name"></input>
                     </label>
                     <label className="register__form--label"> Enter Your Last Name
-                        <input name="last_name" className="register__form--input" placeholder="Enter Last Name"></input>
+                        <input autoComplete="off" name="last_name" className="register__form--input" placeholder="Enter Last Name"></input>
                     </label>
                     <label className="register__form--label"> Enter Your Password
-                        <input type="password" name="password" className="register__form--input pass" placeholder="Enter password"></input>
+                        <input autoComplete="off" type="password" name="password" className="register__form--input pass" placeholder="Enter password"></input>
                     </label>
                     <label className="register__form--label"> Confirm Your Password
-                        <input type="password" name="confirm" className="register__form--input pass" placeholder="Confirm password"></input>
+                        <input autoComplete="off" type="password" name="confirm" className="register__form--input pass" placeholder="Confirm password"></input>
                     </label>
                     <button className="register__form--button" >Register</button>
                 </form>

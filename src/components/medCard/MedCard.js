@@ -18,6 +18,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
     const [hours, setHours] = useState(null)
     const [minutes, setMinutes] = useState(null)
     const [seconds, setSeconds] = useState(null)
+    const [isLow, setIsLow] = useState(false)
 
    
     let int = 0
@@ -31,15 +32,17 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
 
     const handleTaken = (e) => {
         e.preventDefault()
-        if(amount = 0) {
-            amount = amount
-        } else {
-            amount = amount--
+        if(amount === 0) {
+            amount = 0
+        } else if (amount > 0) {
+            amount = amount - 1
         }
+
         let comm = e.target.comment.value
         if (comm === undefined) {
             comm = ""
         }
+    
         axios.post(`http://localhost:8080/log/post`,{
             "comment": comm,
             "medid": med_id
@@ -83,6 +86,9 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
                     medArray.push(med)
                 }
             })
+            if (amount <= 5) {
+                setIsLow(true)
+            }
 
             setCountdownDate(new Date(medArray[medArray.length-1].date_taken).getTime() + int)
             
@@ -105,11 +111,14 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
             console.log(error)
         })
 
-    },[setSeconds, countdownDate, handleTaken, handleDeleteClick])
+    },[setSeconds, countdownDate])
+
+   
+
 
     if (!countdownDate || seconds === null) {
         return (
-            <main className="med">
+        <main className="med">
             <div className="med__image--holder">
                 <img src={Logo} alt="pill" className="med__image"></img>
             </div>
@@ -130,18 +139,21 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
    
     return (
         <main className="med">
-            <div className="med__image--holder">
-                <img src={Logo} alt="pill" className="med__image"></img>
-            </div>
-            <div className="med__div">
-                <h3 className="med__name">{medname}</h3>
-            </div>
-            <div className="med__info">
-                <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}`}</span>
-                
+            <div className="med__top">
+                <div className="med__title">
+                    <div className="med__image--holder">
+                        <img src={Logo} alt="pill" className="med__image"></img>
+                    </div>
+                    <div className="med__div">
+                        <h3 className="med__name">{medname}</h3>
+                    </div>
+                </div>
             </div>
             <div className="med__amt">
-                <span className="med__span">{amount} left</span>
+                <span className={`med_span ${!isLow ? "" : "red"}`}>{amount} Remaining</span>
+            </div>
+            <div className="med__info">
+                <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}S`}</span>
             </div>
             <form className="med__form" onSubmit={handleTaken}>
                 <div className="med__comment">

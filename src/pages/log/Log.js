@@ -44,6 +44,7 @@ const Log = () => {
         <div>
             <Header />
             <main className="log">
+                <h1>History</h1>
                 {reverso.map((logex)=>{
                     return (
                         <Logcard key={uuid()} logex={logex} />

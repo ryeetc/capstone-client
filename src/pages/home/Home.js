@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import MedCard from "../../components/medCard/MedCard"
 import Header from "../../components/header/Header"
-import EditModal from "../../components/editModal/EditModal"
 import { v4 as uuid } from 'uuid';
 
 const Home = () => {
@@ -18,9 +17,7 @@ const Home = () => {
             Authorization: `Bearer ${token}`,
             id: id
         }, }) 
-        .then(()=>{
-            refresh = uuid()
-        })
+        window.location.reload()
         
     }
 
@@ -56,8 +53,6 @@ const Home = () => {
         )
     }
 
-
-
     const handleEditClick = (med) => {
         navigate(`/edit/${med.id}`)
         
@@ -73,12 +68,10 @@ const Home = () => {
                     )
                 })}
                 <div className="home__add">
-                    <span className="home__add--label">Click here to add a new medication</span>
-                    <button className="home__add--button" onClick={handleAddClick}>+</button>
+                    <button className="home__add--button" onClick={handleAddClick}>Add a Medication</button>
                 </div>
                 <div className="home__log">
-                    <span className="home__log--label">Click here to view your log</span>
-                    <button className="home__log--button" onClick={handleLogClick}>+</button>
+                    <button className="home__log--button" onClick={handleLogClick}>View Log</button>
                 </div>
            </div>
         </div>

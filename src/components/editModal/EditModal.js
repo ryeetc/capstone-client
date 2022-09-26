@@ -54,23 +54,25 @@ const EditModal = () => {
                     </div>
                     <form className="edit__form" onSubmit={handleEditSubmit}>
                         <label className="edit__form--label"> Medication Name
-                            <input name="medname" className="edit__form--input alert" ></input>
+                            <input autoComplete="off" name="medname" className="edit__form--input alert" ></input>
                         </label>
                         <label className="edit__form--label"> Dosage
-                            <input name="dosage" className="edit__form--input alert" ></input>
+                            <input autoComplete="off" name="dosage" className="edit__form--input alert" ></input>
                         </label>
-                        <label className="edit__form--label interval"> Interval
-                            <label className="edit-interval__label">Every
-                                <input type="number" name="number" className="interval__option alert" ></input>
-                            </label>
-                            <select className="edit-interval__select" name="select">
-                                <option className="select__option hour" value="Hour(s)">Hour(s)</option>
-                                <option className="select__option day" value="Day(s)">Day(s)</option>
-                                <option className="select__option week" value="Week(s)">Week(s)</option>
-                            </select>
+                        <label className="edit__form--label edit-interval"> Interval
+                            <div className="edit-interval__container">
+                                <label className="edit-interval__label">Every
+                                    <input autoComplete="off" type="number" name="number" className="edit-interval__option alert" ></input>
+                                </label>
+                                <select className="edit-interval__select" name="select">
+                                    <option className="select__option hour" value="Hour(s)">Hour(s)</option>
+                                    <option className="select__option day" value="Day(s)">Day(s)</option>
+                                    <option className="select__option week" value="Week(s)">Week(s)</option>
+                                </select>
+                            </div>
                         </label>
                         <label className="edit__form--label"> Amount (optional)
-                            <input name="amount" type="number" className="add__form--input " ></input>
+                            <input autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
                         </label>
                         <button className="edit__form--submit">Confirm Edit</button>
                     </form>
@@ -88,23 +90,25 @@ const EditModal = () => {
                 </div>
                 <form className="edit__form" onSubmit={handleEditSubmit}>
                     <label className="edit__form--label"> Medication Name
-                        <input name="medname" className="edit__form--input " ></input>
+                        <input autoComplete="off" name="medname" className="edit__form--input " ></input>
                     </label>
                     <label className="edit__form--label"> Dosage
-                        <input name="dosage" className="edit__form--input " ></input>
+                        <input autoComplete="off" name="dosage" className="edit__form--input " ></input>
                     </label>
-                    <label className="edit__form--label interval"> Interval
-                        <label className="edit-interval__label">Every
-                            <input type="number" name="number" className="interval__option " ></input>
-                        </label>
-                        <select className="edit-interval__select" name="select">
-                            <option className="select__option hour" value="Hour(s)">Hour(s)</option>
-                            <option className="select__option day" value="Day(s)">Day(s)</option>
-                            <option className="select__option week" value="Week(s)">Week(s)</option>
-                        </select>
+                    <label className="edit__form--label edit-interval"> Interval
+                        <div className="edit-interval__container">
+                            <label className="edit-interval__label">Every
+                                <input autoComplete="off" type="number" name="number" className="edit-interval__option " ></input>
+                            </label>
+                            <select className="edit-interval__select" name="select">
+                                <option className="select__option hour" value="Hour(s)">Hour(s)</option>
+                                <option className="select__option day" value="Day(s)">Day(s)</option>
+                                <option className="select__option week" value="Week(s)">Week(s)</option>
+                            </select>
+                        </div>
                     </label>
                     <label className="edit__form--label"> Amount (optional)
-                        <input name="amount" type="number" className="add__form--input " ></input>
+                        <input autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
                     </label>
                     <button className="edit__form--submit">Confirm Edit</button>
                 </form>

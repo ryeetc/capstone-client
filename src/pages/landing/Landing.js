@@ -37,16 +37,16 @@ const Landing = () => {
             <Header />
             <main className="landing">
                 <div className="landing__top">
-                    <img className="landing__logo" src={Logo} alt="Logo"></img>
+                    <img className="landing__logo rotate" src={Logo} alt="Logo"></img>
                     <h1 className="landing__welcome">Welcome to MedTrack</h1>
                     <p className="landing__intro">Your virtual pillbox</p>
                 </div>
                 <form className="landing__form" onSubmit={handleLoginClick}>
                     <label className="landing__form--label"> Enter Your Email
-                        <input name="email" className="landing__form--input" placeholder="Enter email"></input>
+                        <input autoComplete="off" type="email" name="email" className="landing__form--input" placeholder="Enter email"></input>
                     </label>
                     <label className="landing__form--label"> Enter Your Password
-                        <input name="password" className="landing__form--input" placeholder="Enter password"></input>
+                        <input autoComplete="off" name="password" type="password" className="landing__form--input" placeholder="Enter password"></input>
                     </label>
                     <button className="landing__form--button" >Sign In</button>
                 </form>
