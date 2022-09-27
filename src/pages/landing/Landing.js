@@ -7,7 +7,7 @@ import { useState } from "react"
 
 const Landing = () => {
 
-    document.title = "PillTrack"
+    document.title = "VirtuPill"
 
     const [logFail, setLogFail] = useState(false)
 
@@ -44,7 +44,7 @@ const Landing = () => {
             <main className="landing">
                 <div className="landing__top">
                     <img className="landing__logo rotate" src={Logo} alt="Logo"></img>
-                    <h1 className="landing__welcome">Welcome to PillTrack</h1>
+                    <h1 className="landing__welcome">Welcome to VirtuPill</h1>
                     <p className="landing__intro">Your virtual pillbox</p>
                 </div>
                 <form className="landing__form" onSubmit={handleLoginClick}>

@@ -8,7 +8,7 @@ import { useState } from "react"
 
 const Register = () => {
 
-    document.title = "PillTrack Register"
+    document.title = "VirtuPill Register"
 
     const [failed, setFailed] = useState(false)
     const [failMatch, setFailMatch] = useState(false)
@@ -62,7 +62,7 @@ const Register = () => {
             <main className="register">
                 <div className="register__top">
                     <img className="register__logo rotate" src={Logo} alt="Logo"></img>
-                    <h1 className="register__welcome">Register for PillTrack</h1>
+                    <h1 className="register__welcome">Register for VirtuPill</h1>
                 </div>
                 <form className="register__form" onSubmit={handleRegisterClick}>
                     

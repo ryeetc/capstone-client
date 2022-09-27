@@ -8,7 +8,7 @@ import { v4 as uuid } from 'uuid';
 
 const Home = () => {
 
-    document.title = "PillTrack Home"
+    document.title = "VirtuPill Home"
 
     let refresh = uuid()
     const navigate = useNavigate()

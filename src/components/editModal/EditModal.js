@@ -6,7 +6,7 @@ import { useState } from "react"
 
 const EditModal = () => {
 
-    document.title = "PillTrack Edit"
+    document.title = "VirtuPill Edit"
 
     const {id} = useParams()
     const [error, setIsError] = useState(false)

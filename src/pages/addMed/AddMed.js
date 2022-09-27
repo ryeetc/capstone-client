@@ -7,7 +7,7 @@ import Header from "../../components/header/Header"
 
 const AddMed = () => {
 
-    document.title = "PillTrack Add"
+    document.title = "VirtuPill Add"
 
     const navigate = useNavigate()
     const token = localStorage.authToken
