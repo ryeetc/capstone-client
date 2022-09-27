@@ -54,7 +54,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
             Authorization: `Bearer ${token}`
         }, })
         
-        axios.patch("http://localhost:8080/edit/amt", {
+        axios.patch("https://pilltrack.herokuapp.com/edit/amt", {
             "amount": amount
         }, { headers: {
             Authorization: `Bearer ${token}`,
