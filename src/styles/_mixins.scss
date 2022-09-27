@@ -1,0 +1,27 @@
+$TabletBreakpoint: 768px;
+$DesktopBreakpoint: 1280px;
+
+
+@keyframes rotation{
+    from{
+      transform:rotate(0deg);
+    }
+  
+    to{
+      transform:rotate(360deg);
+    }
+  }
+
+
+
+@mixin tablet {
+    @media (min-width: $TabletBreakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $DesktopBreakpoint) {
+        @content
+    }
+}

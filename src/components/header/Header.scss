@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    color:#353839;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+    background-color: #e6eaf0;
+    box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.05);
+   
+
+    &__profile {
+        display: flex;
+        justify-content: center;
+        width: 20rem;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+       
+    }
+
+    &__logo {
+        width: 3rem;
+        border-radius: 50%;
+    }
+
+    &__nav {
+        display: flex;
+        text-align: center;
+        justify-content: right;
+        align-items: center;
+        gap: 0.5rem;
+      
+    }
+}
+
+.nav__link {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #e6eaf0;
+    color:#353839;
+    font-size: 1rem;
+    border: 3px solid #e6eaf0;
+    box-shadow: 
+    3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
+    &:hover {
+        box-shadow: 
+            inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
+            inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
+            1px 1px 5px 0 rgba(0, 0, 0, 0.18),
+            -1px -1px 5px 0 rgba(255, 255, 255, 0.8);
+        }
+}
