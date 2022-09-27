@@ -7,14 +7,25 @@
  }
 
 .landing {
-    background-color: #Fafeff;
+    background-color: #e6eaf0;
     border-radius: 10px;
     margin: 1rem 10% 0rem 10%;
     color: 	#353839;
     padding: 1rem;
     box-shadow: 
-    1px 1px 5px 0 rgba(0, 0, 0, 0.18),
-    -10px -10px 20px 0 rgba(255, 255, 255, 1);
+    3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40vh;
+    }
+
+    @include desktop{
+        height: 60vh;
+    }
 
     &__top {
         display: flex;
@@ -24,9 +35,18 @@
         margin-bottom: 1rem;
         border-radius: 10px;
         gap: 1rem;
-        // box-shadow: 
-        // 5px 5px 10px 0 rgba(0, 0, 0, 0.18),
-        // -5px -5px 10px 0 rgba(255, 255, 255, 0.8);
+        padding-top: 1.5rem;
+        box-shadow: 
+        3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+        -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
+
+        @include tablet {
+            width: 30%;
+        }
+
+        @include desktop {
+            width: 40%;
+        }
     }
 
     &__logo {
@@ -56,6 +76,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include tablet {
+            width: 30%;
+
+        }
+
+        @include desktop {
+            flex-direction: row;
+            width: 75%;
+            align-items: flex-end;
+        }
     }
 
     &__cta {
@@ -63,6 +94,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @include tablet {
+            width: 30%;
+        }
+
+        @include desktop {
+            width: 15%;
+        }
         
     }
 }
@@ -76,20 +115,28 @@
 
 .landing__form--input {
     margin-top: 0.5rem;
-    background-color: #Fafeff;
+    background-color: #e6eaf0;
     border-radius: 10px;
     padding: 0.5rem;
     border: none;
     outline: none;
     color:#353839;
-    border: 3px solid #Fafeff;
+    border: 3px solid #e6eaf0;
     box-shadow: 
     inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
     inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
-    1px 1px 5px 0 rgba(0, 0, 0, 0.18),
-    -10px -10px 20px 0 rgba(255, 255, 255, 1);
+    3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
     &:focus {
         border: 3px solid cornflowerblue;
+    }
+
+    @include tablet{
+        width: 12rem;
+    }
+
+    @include desktop {
+        width: 15rem;
     }
    
 }
@@ -98,23 +145,36 @@
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 10px;
-    background-color: #Fafeff;
+    background-color: #e6eaf0;
     color:#353839;
     font-size: 1rem;
-    border: 3px solid #Fafeff;
+    border: 3px solid #e6eaf0;
     box-shadow: 
-    1px 1px 5px 0 rgba(0, 0, 0, 0.18),
-    -10px -10px 20px 0 rgba(255, 255, 255, 1);
+    3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
     &:hover {
         box-shadow: 
     inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
     inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
-    1px 1px 5px 0 rgba(0, 0, 0, 0.18),
-    -10px -10px 20px 0 rgba(255, 255, 255, 1);
+    3px 3px 8px 0 rgba(0, 0, 0, 0.18),
+    -3px -3px 8px 0 rgba(255, 255, 255, 0.8);
     }
 }
 
 .landing__cta {
     cursor: pointer;
+}
+
+.fail-log {
+    border: 3px solid red;
+}
+
+.error-msg {
+    display: none;
+}
+
+.error-msg-show {
+    display: block;
+    color: red;
 }
 

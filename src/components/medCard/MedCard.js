@@ -2,6 +2,8 @@ import "./MedCard.scss"
 import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
 import { useState, useEffect } from "react"
+import edit from "../../assets/images/icons8-edit.svg"
+import del from "../../assets/images/icons8-delete.svg"
 
 const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
 
@@ -111,7 +113,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
             console.log(error)
         })
 
-    },[setSeconds, countdownDate])
+    },[setSeconds, countdownDate, amount, int, med_id, token])
 
    
 
@@ -149,11 +151,13 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
                     </div>
                 </div>
             </div>
-            <div className="med__amt">
-                <span className={`med_span ${!isLow ? "" : "red"}`}>{amount} Remaining</span>
-            </div>
-            <div className="med__info">
-                <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}S`}</span>
+            <div className="med__info--cont">
+                <div className="med__amt">
+                    <span className={`med_span ${!isLow ? "" : "red"}`}>{amount} Remaining</span>
+                </div>
+                <div className="med__info">
+                    <span className="med__span">{`${days}D ${hours}H ${minutes}M ${seconds}S`}</span>
+                </div>
             </div>
             <form className="med__form" onSubmit={handleTaken}>
                 <div className="med__comment">
@@ -164,8 +168,8 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
                 </div>
             </form>
             <div className="edit__delete">
-                <button onClick={()=>{handleEditClick(med)}} className="edit__button">Edit</button>
-                <button onClick={()=>{handleDeleteClick(med_id)}} className="delete__button">Delete</button>
+                <img src={edit} alt="edit" onClick={()=>{handleEditClick(med)}} className="edit__button"></img>
+                <img src={del} alt="delete" onClick={()=>{handleDeleteClick(med_id)}} className="delete__button"></img>
             </div>
         </main>
 

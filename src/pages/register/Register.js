@@ -3,8 +3,13 @@ import Logo from "../../assets/images/Logo.png"
 import Header from "../../components/header/Header"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+
 
 const Register = () => {
+
+    const [failed, setFailed] = useState(false)
+    const [failMatch, setFailMatch] = useState(false)
 
     const navigate = useNavigate()
 
@@ -18,14 +23,22 @@ const Register = () => {
         const confirm = e.target.confirm.value
         const email = e.target.email.value
 
+        if (!first_name || !last_name || !password || !confirm || !email ) {
+            setFailed(true)
+            return
+        }
+
         if (password !== confirm) {
             const passEl = document.getElementsByClassName("pass")
             passEl[0].classList.add("error")
             passEl[1].classList.add("error")
+            setFailed(false)
+            setFailMatch(true)
             return
         }
 
         axios.post(`http://localhost:8080/register`,{
+            "confirm": confirm,
             "first_name": first_name,
             "last_name": last_name,
             "password": password,
@@ -33,6 +46,9 @@ const Register = () => {
         } )
             .then((response)=>{
                 navigate(`/`)
+            })
+            .catch ((error)=>{
+                console.log(error)
             })
 
 
@@ -46,21 +62,25 @@ const Register = () => {
                     <h1 className="register__welcome">Register for MedTrack</h1>
                 </div>
                 <form className="register__form" onSubmit={handleRegisterClick}>
+                    <span className={`error-msg ${!failed ? "" : "error-msg-show"}`}>Please enter valid inputs</span>
                     <label className="register__form--label"> Enter Your Email
-                        <input autoComplete="off" name="email" type="email" className="register__form--input" placeholder="Enter email"></input>
+                        <input required autoComplete="off" name="email" type="email" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter email"></input>
                     </label>
                     <label className="register__form--label"> Enter Your First Name
-                        <input autoComplete="off" name="first_name" className="register__form--input" placeholder="Enter First Name"></input>
+                        <input required autoComplete="off" name="first_name" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter First Name"></input>
                     </label>
                     <label className="register__form--label"> Enter Your Last Name
-                        <input autoComplete="off" name="last_name" className="register__form--input" placeholder="Enter Last Name"></input>
+                        <input required autoComplete="off" name="last_name" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter Last Name"></input>
                     </label>
-                    <label className="register__form--label"> Enter Your Password
-                        <input autoComplete="off" type="password" name="password" className="register__form--input pass" placeholder="Enter password"></input>
-                    </label>
-                    <label className="register__form--label"> Confirm Your Password
-                        <input autoComplete="off" type="password" name="confirm" className="register__form--input pass" placeholder="Confirm password"></input>
-                    </label>
+                    <div className="error-container">
+                        <span className={`error-msg ${!failMatch ? "" : "error-msg-show reg-error"}`}>Passwords don't match</span>
+                        <label className="register__form--label"> Enter Your Password
+                            <input required autoComplete="off" type="password" name="password" className={`register__form--input pass ${!failed ? "" : "error"} ${!failMatch ? "" : "error"}`} placeholder="Enter password"></input>
+                        </label>
+                        <label className="register__form--label"> Confirm Your Password
+                            <input required autoComplete="off" type="password" name="confirm" className={`register__form--input pass ${!failed ? "" : "error"} ${!failMatch ? "" : "error"}`} placeholder="Confirm password"></input>
+                        </label>
+                    </div>
                     <button className="register__form--button" >Register</button>
                 </form>
             </main>

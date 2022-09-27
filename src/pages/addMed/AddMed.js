@@ -50,15 +50,15 @@ const AddMed = () => {
                 </div>
                 <form className="add__form" onSubmit={addMedSubmit}>
                     <label className="add__form--label"> Medication Name
-                        <input autoComplete="off" name="medname" className="add__form--input" placeholder="Enter medication name"></input>
+                        <input required autoComplete="off" name="medname" className="add__form--input" placeholder="Enter medication name"></input>
                     </label>
                     <label className="add__form--label"> Dosage
-                        <input autoComplete="off" name="dosage" className="add__form--input" placeholder="Enter dosage"></input>
+                        <input required autoComplete="off" name="dosage" className="add__form--input" placeholder="Enter dosage"></input>
                     </label>
                     <label className="add__form--label interval"> Interval
                         <div className="add__form--container">
                             <label className="interval__label">Every
-                                <input autoComplete="off" type="number" name="number" className="interval__option"></input>
+                                <input required autoComplete="off" type="number" name="number" className="interval__option"></input>
                             </label>
                             <select className="interval__select" name="select">
                                 <option className="select__option" value="Hour(s)">Hour(s)</option>
@@ -67,8 +67,8 @@ const AddMed = () => {
                             </select>
                         </div>
                     </label>
-                    <label className="add__form--label"> Amount (optional)
-                        <input autoComplete="off" name="amount" className="add__form--input" placeholder="Enter prescription amount"></input>
+                    <label className="add__form--label"> Amount
+                        <input required autoComplete="off" name="amount" className="add__form--input" placeholder="Enter prescription amount"></input>
                     </label>
                     <button className="add__form--submit">Add Medication</button>
                 </form>

@@ -42,7 +42,7 @@ const Home = () => {
             .then((response)=>{
                 setMeds(response.data)
             })
-    }, [token])
+    }, [token, navigate])
 
     if(!meds) {
         return (
@@ -62,11 +62,13 @@ const Home = () => {
         <div key={refresh}>
             <Header />
             <div className="home">
-                {meds.map((med)=>{
-                    return (
-                        <MedCard key={med.id} handleEditClick={handleEditClick} medname={med.med_name} med={med} handleDeleteClick={handleDeleteClick} />
-                    )
-                })}
+                <div className="home__card">
+                    {meds.map((med)=>{
+                        return (
+                            <MedCard key={med.id} handleEditClick={handleEditClick} medname={med.med_name} med={med} handleDeleteClick={handleDeleteClick} />
+                        )
+                    })}
+                </div>
                 <div className="home__add">
                     <button className="home__add--button" onClick={handleAddClick}>Add a Medication</button>
                 </div>

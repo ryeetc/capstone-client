@@ -3,8 +3,11 @@ import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import Header from "../../components/header/Header"
+import { useState } from "react"
 
 const Landing = () => {
+
+    const [logFail, setLogFail] = useState(false)
 
     const navigate = useNavigate()
 
@@ -28,6 +31,7 @@ const Landing = () => {
     
             })
             .catch((error)=>{
+                setLogFail(true)
                 console.log(error)
             })
     }
@@ -43,11 +47,12 @@ const Landing = () => {
                 </div>
                 <form className="landing__form" onSubmit={handleLoginClick}>
                     <label className="landing__form--label"> Enter Your Email
-                        <input autoComplete="off" type="email" name="email" className="landing__form--input" placeholder="Enter email"></input>
+                        <input required autoComplete="off" type="email" name="email" className={`landing__form--input ${!logFail ? "" : "fail-log"}`} placeholder="Enter email"></input>
                     </label>
                     <label className="landing__form--label"> Enter Your Password
-                        <input autoComplete="off" name="password" type="password" className="landing__form--input" placeholder="Enter password"></input>
+                        <input required autoComplete="off" name="password" type="password" className={`landing__form--input ${!logFail ? "" : "fail-log"}`} placeholder="Enter password"></input>
                     </label>
+                    <span className={`error-msg ${!logFail ? "" : "error-msg-show"}`}>Email or Password is Incorrect</span>
                     <button className="landing__form--button" >Sign In</button>
                 </form>
                 <div className="landing__cta" onClick={toSignup}>

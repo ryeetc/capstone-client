@@ -54,15 +54,15 @@ const EditModal = () => {
                     </div>
                     <form className="edit__form" onSubmit={handleEditSubmit}>
                         <label className="edit__form--label"> Medication Name
-                            <input autoComplete="off" name="medname" className="edit__form--input alert" ></input>
+                            <input required autoComplete="off" name="medname" className="edit__form--input alert" ></input>
                         </label>
                         <label className="edit__form--label"> Dosage
-                            <input autoComplete="off" name="dosage" className="edit__form--input alert" ></input>
+                            <input required autoComplete="off" name="dosage" className="edit__form--input alert" ></input>
                         </label>
                         <label className="edit__form--label edit-interval"> Interval
                             <div className="edit-interval__container">
                                 <label className="edit-interval__label">Every
-                                    <input autoComplete="off" type="number" name="number" className="edit-interval__option alert" ></input>
+                                    <input required autoComplete="off" type="number" name="number" className="edit-interval__option alert" ></input>
                                 </label>
                                 <select className="edit-interval__select" name="select">
                                     <option className="select__option hour" value="Hour(s)">Hour(s)</option>
@@ -72,7 +72,7 @@ const EditModal = () => {
                             </div>
                         </label>
                         <label className="edit__form--label"> Amount (optional)
-                            <input autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
+                            <input required autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
                         </label>
                         <button className="edit__form--submit">Confirm Edit</button>
                     </form>
@@ -90,15 +90,15 @@ const EditModal = () => {
                 </div>
                 <form className="edit__form" onSubmit={handleEditSubmit}>
                     <label className="edit__form--label"> Medication Name
-                        <input autoComplete="off" name="medname" className="edit__form--input " ></input>
+                        <input required autoComplete="off" name="medname" className="edit__form--input " ></input>
                     </label>
                     <label className="edit__form--label"> Dosage
-                        <input autoComplete="off" name="dosage" className="edit__form--input " ></input>
+                        <input required autoComplete="off" name="dosage" className="edit__form--input " ></input>
                     </label>
                     <label className="edit__form--label edit-interval"> Interval
                         <div className="edit-interval__container">
                             <label className="edit-interval__label">Every
-                                <input autoComplete="off" type="number" name="number" className="edit-interval__option " ></input>
+                                <input required autoComplete="off" type="number" name="number" className="edit-interval__option " ></input>
                             </label>
                             <select className="edit-interval__select" name="select">
                                 <option className="select__option hour" value="Hour(s)">Hour(s)</option>
@@ -107,8 +107,8 @@ const EditModal = () => {
                             </select>
                         </div>
                     </label>
-                    <label className="edit__form--label"> Amount (optional)
-                        <input autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
+                    <label className="edit__form--label"> Amount
+                        <input required autoComplete="off" name="amount" type="number" className="add__form--input " ></input>
                     </label>
                     <button className="edit__form--submit">Confirm Edit</button>
                 </form>
