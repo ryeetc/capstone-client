@@ -6,7 +6,7 @@ import edit from "../../assets/images/icons8-edit.svg"
 import del from "../../assets/images/icons8-delete.svg"
 
 const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
-
+    const dosage = med.dosage
     const token = localStorage.authToken
     const medname = med.med_name
     const interval = med.time_interval
@@ -47,7 +47,9 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
     
         axios.post(`http://localhost:8080/log/post`,{
             "comment": comm,
-            "medid": med_id
+            "medid": med_id,
+            "dosage": dosage,
+            "med_name": medname
         }, { headers: {
             Authorization: `Bearer ${token}`
         }, })

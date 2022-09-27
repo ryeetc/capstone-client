@@ -7,6 +7,8 @@ import Header from "../../components/header/Header"
 
 const AddMed = () => {
 
+    document.title = "PillTrack Add"
+
     const navigate = useNavigate()
     const token = localStorage.authToken
 
@@ -68,7 +70,7 @@ const AddMed = () => {
                         </div>
                     </label>
                     <label className="add__form--label"> Amount
-                        <input required autoComplete="off" name="amount" className="add__form--input" placeholder="Enter prescription amount"></input>
+                        <input required autoComplete="off" name="amount" type="number" className="add__form--input" placeholder="Enter prescription amount"></input>
                     </label>
                     <button className="add__form--submit">Add Medication</button>
                 </form>

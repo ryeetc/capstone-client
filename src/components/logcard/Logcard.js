@@ -13,7 +13,7 @@ const Logcard = ({logex}) => {
                 <h1 className="logcard__title">{logex.med_name}</h1>
             </div>
             <div className="logcard__content">
-                <span className="logcard__content--span">{logex.dosage}</span>
+                <span className="logcard__content--span">Dosage: {logex.dosage}</span>
                 <span className="logcard__content--span">{logex.comment}</span>
                 <span className="logcard__content--span">{time}</span>
             </div>

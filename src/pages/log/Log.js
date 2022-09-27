@@ -8,6 +8,8 @@ import { v4 as uuid } from 'uuid';
 
 const Log = () => {
 
+    document.title = "PillTrack Log"
+
     const token = localStorage.getItem("authToken")
 
     const [log, setLog] = useState(null)
@@ -21,7 +23,7 @@ const Log = () => {
         .then((response)=>{
             setLog(response.data)
         })
-    }, [])
+    }, [token])
 
 
     if (!log) {

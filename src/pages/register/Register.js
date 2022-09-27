@@ -8,8 +8,11 @@ import { useState } from "react"
 
 const Register = () => {
 
+    document.title = "PillTrack Register"
+
     const [failed, setFailed] = useState(false)
     const [failMatch, setFailMatch] = useState(false)
+    const [unique, setUnique] = useState(false)
 
     const navigate = useNavigate()
 
@@ -48,7 +51,7 @@ const Register = () => {
                 navigate(`/`)
             })
             .catch ((error)=>{
-                console.log(error)
+                setUnique(true)
             })
 
 
@@ -59,25 +62,27 @@ const Register = () => {
             <main className="register">
                 <div className="register__top">
                     <img className="register__logo rotate" src={Logo} alt="Logo"></img>
-                    <h1 className="register__welcome">Register for MedTrack</h1>
+                    <h1 className="register__welcome">Register for PillTrack</h1>
                 </div>
                 <form className="register__form" onSubmit={handleRegisterClick}>
-                    <span className={`error-msg ${!failed ? "" : "error-msg-show"}`}>Please enter valid inputs</span>
-                    <label className="register__form--label"> Enter Your Email
+                    
+                    <label className="register__form--label"> Enter Email
+                        <span className={`error-msg ${!unique ? "" : "error-msg-show"}`}>User already exists</span>
+                        <span className={`error-msg ${!failed ? "" : "error-msg-show"}`}>Please enter valid inputs</span>
                         <input required autoComplete="off" name="email" type="email" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter email"></input>
                     </label>
-                    <label className="register__form--label"> Enter Your First Name
+                    <label className="register__form--label"> Enter First Name
                         <input required autoComplete="off" name="first_name" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter First Name"></input>
                     </label>
-                    <label className="register__form--label"> Enter Your Last Name
+                    <label className="register__form--label"> Enter Last Name
                         <input required autoComplete="off" name="last_name" className={`register__form--input  ${!failed ? "" : "error"}`} placeholder="Enter Last Name"></input>
                     </label>
                     <div className="error-container">
                         <span className={`error-msg ${!failMatch ? "" : "error-msg-show reg-error"}`}>Passwords don't match</span>
-                        <label className="register__form--label"> Enter Your Password
+                        <label className="register__form--label"> Enter Password
                             <input required autoComplete="off" type="password" name="password" className={`register__form--input pass ${!failed ? "" : "error"} ${!failMatch ? "" : "error"}`} placeholder="Enter password"></input>
                         </label>
-                        <label className="register__form--label"> Confirm Your Password
+                        <label className="register__form--label"> Confirm Password
                             <input required autoComplete="off" type="password" name="confirm" className={`register__form--input pass ${!failed ? "" : "error"} ${!failMatch ? "" : "error"}`} placeholder="Confirm password"></input>
                         </label>
                     </div>

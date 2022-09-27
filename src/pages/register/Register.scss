@@ -60,6 +60,8 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 2rem;
+            
         }
 
         &--label {
@@ -137,5 +139,6 @@
         justify-content: center;
         margin-top: 0.5rem;
         align-items: center;
+        gap: 2rem;
     }
 }

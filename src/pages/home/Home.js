@@ -7,6 +7,9 @@ import Header from "../../components/header/Header"
 import { v4 as uuid } from 'uuid';
 
 const Home = () => {
+
+    document.title = "PillTrack Home"
+
     let refresh = uuid()
     const navigate = useNavigate()
     const token = localStorage.authToken
