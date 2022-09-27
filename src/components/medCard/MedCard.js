@@ -45,7 +45,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
             comm = ""
         }
     
-        axios.post(`http://localhost:8080/log/post`,{
+        axios.post(`https://pilltrack.herokuapp.com/log/post`,{
             "comment": comm,
             "medid": med_id,
             "dosage": dosage,
@@ -61,7 +61,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
             id: med_id
         }, } )
             
-        axios.get(`http://localhost:8080/log`,{ headers: {
+        axios.get(`https://pilltrack.herokuapp.com/log`,{ headers: {
             Authorization: `Bearer ${token}`
         }, } )
             .then ((response)=>{
@@ -79,7 +79,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
    
     useEffect(()=>{
         
-        axios.get(`http://localhost:8080/log`,{ headers: {
+        axios.get(`https://pilltrack.herokuapp.com/log`,{ headers: {
         Authorization: `Bearer ${token}`
         }, } )
         .then ((response)=>{

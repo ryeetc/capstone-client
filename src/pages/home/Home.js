@@ -36,7 +36,7 @@ const Home = () => {
         if(!token) {
             navigate("/")
         }
-        const user = axios.get(`http://localhost:8080/meds`, {
+        const user = axios.get(`https://pilltrack.herokuapp.com/meds`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
