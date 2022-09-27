@@ -34,7 +34,7 @@ const EditModal = () => {
         if (amt === "") {
             amt = 0
         }
-        axios.patch("http://localhost:8080/edit", {
+        axios.patch(https://pilltrack.herokuapp.com//edit", {
             "amount": amt,
             "med_name": name,
             "dosage": dose,

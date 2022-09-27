@@ -21,7 +21,7 @@ const Landing = () => {
         event.preventDefault()
         const email = event.target.email.value
         const pass = event.target.password.value
-        axios.post("http://localhost:8080/login", {
+        axios.post(https://pilltrack.herokuapp.com//login", {
             email: email,
             password: pass
         })
