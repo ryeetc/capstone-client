@@ -15,7 +15,7 @@ const Log = () => {
     const [log, setLog] = useState(null)
 
     useEffect(()=>{
-        axios.get("https://pilltrack.herokuapp.com/log", {
+        axios.get("http://localhost:8080/log", {
             headers: {
                 Authorization: `Bearer ${token}`
             }

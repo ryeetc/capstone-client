@@ -29,7 +29,7 @@ const AddMed = () => {
         const interval = `Every ${number} ${period}`
         const amount = e.target.amount.value
 
-        axios.post(`https://pilltrack.herokuapp.com/add`,{
+        axios.post(`http://localhost:8080/add`,{
             "name": name,
             "amount": amount,
             "dosage": dosage,
