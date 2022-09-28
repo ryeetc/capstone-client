@@ -24,7 +24,7 @@
 <!-- PROJECT LOGO -->
 
 
-  <h3 align="center">README</h3>
+  <h3 align="left">README</h3>
 
   <p align="center">To get started, clone this repository and the capstone-server repository</p>
   
