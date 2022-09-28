@@ -40,7 +40,7 @@ const Register = () => {
             return
         }
 
-        axios.post(`https://pilltrack.herokuapp.com/register.`,{
+        axios.post("https://pilltrack.herokuapp.com/register",{
             "confirm": confirm,
             "first_name": first_name,
             "last_name": last_name,
