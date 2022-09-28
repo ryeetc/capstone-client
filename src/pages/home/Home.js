@@ -33,6 +33,10 @@ const Home = () => {
     }
     
     useEffect(()=>{
+
+        document.body.style.zoom = "100%";
+
+
         if(!token) {
             navigate("/")
         }
@@ -44,6 +48,7 @@ const Home = () => {
         user
             .then((response)=>{
                 setMeds(response.data)
+                
             })
     }, [token, navigate])
 
