@@ -16,7 +16,7 @@ const Home = () => {
     const [meds, setMeds] = useState(null)
 
     const handleDeleteClick = (id) => {
-        axios.delete("http://localhost:8080/delete/med", { headers: {
+        axios.delete("https://pilltrack.herokuapp.com/delete/med", { headers: {
             Authorization: `Bearer ${token}`,
             id: id
         }, }) 
@@ -36,7 +36,7 @@ const Home = () => {
         if(!token) {
             navigate("/")
         }
-        const user = axios.get(`http://localhost:8080/meds`, {
+        const user = axios.get(`https://pilltrack.herokuapp.com/meds`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
