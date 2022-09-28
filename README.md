@@ -30,7 +30,9 @@
   
   <p align="left">After cloning the server repo, create a .env file where you will add the following variables: DB_NAME, DB_USER, DB_PASSWORD, SECRET, PORT (use the value 8080), and DB_HOST</p>
   
-  <p align="left">Next, run npm i in the CLI of the server AND the client to install all dependencies</p>
+  <p align="left">Next, run the following in the CLI of the server AND the client to install all dependencies</p>
+  
+  ```bash npm i ```
   
   <p align="left">Create a medtrack database using MySQL called medtrack and plug in the DB information to your .env variables</p>
   
