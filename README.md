@@ -36,13 +36,25 @@
   
   <p align="left">Create a medtrack database using MySQL called medtrack and plug in the DB information to your .env variables</p>
   
-  <p align="left">After creating a database, run "npx knex migrate:latest" to create the tables. Next, run "npx knex seed:run" to seed the table with placeholder users</p>
+  <p align="left">After creating a database, run the following to create the tables</p>
   
-  <p align="left">Now that everything is seeded and installed, use "npm run dev" on the server side to boot up the development server</p>
+  ```bash npx knex migrate:latest ```
   
-  <p align="left">On the client side, use "git checkout test" to jump to the branch with local host endpoints</p>
+  <p align="left"> Next, run the follwoing to seed the table with placeholder users</p>
   
-  <p align="left">On the frontend (client side), run "npm start" to boot up the local site</p>
+  ```bash npx knex seed:run ```
+  
+  <p align="left">Now that everything is seeded and installed, use the following on the server side to boot up the development server</p>
+  
+  ```bash npm run dev ```
+  
+  <p align="left">On the client side, use the following to jump to the branch with local host endpoints</p>
+  
+  ```bash git checkout test ```
+  
+  <p align="left">On the frontend (client side), run the following to boot up the local site</p>
+  
+  ```bash npm start ```
   
   <p align="left">Now that both are running you should be good to contribute</p>
   
