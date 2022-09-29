@@ -134,7 +134,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
                     <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
                 </div>
                 <div className="med__button--holder">
-                    <button className="med__button">Taken</button>
+                    <button className="med__button">Take Pill</button>
                 </div>
             </form>
         </main>
@@ -166,7 +166,7 @@ const MedCard = ({med, handleDeleteClick, handleEditClick}) => {
                     <textarea  name="comment" className="med__comment--input" placeholder="Enter your comment here (max 250 chars)"></textarea>
                 </div>
                 <div className="med__button--holder">
-                    <button className="med__button">Taken</button>
+                    <button className="med__button">Take Pill</button>
                 </div>
             </form>
             <div className="edit__delete">
