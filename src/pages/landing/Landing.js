@@ -3,7 +3,7 @@ import Logo from "../../assets/images/Logo.png"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import Header from "../../components/header/Header"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Landing = () => {
 
@@ -11,7 +11,17 @@ const Landing = () => {
 
     const [logFail, setLogFail] = useState(false)
 
+    
+
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        if (localStorage.authToken) {
+            navigate("/profile")
+        }
+    }, [navigate])
+
+    
 
     const toSignup = () => {
         navigate("/register")
@@ -26,15 +36,18 @@ const Landing = () => {
             password: pass
         })
             .then((response)=>{
+                if (response.data === {}) {
+                    setLogFail(true)
+                }
                 if (response.data.token.length > 20) {
                     localStorage.authToken = response.data.token
                     navigate(`/profile`)
-                }
+                } 
     
             })
             .catch((error)=>{
                 setLogFail(true)
-                console.log(error)
+               
             })
     }
 
@@ -55,7 +68,7 @@ const Landing = () => {
                         <input required autoComplete="off" name="password" type="password" className={`landing__form--input ${!logFail ? "" : "fail-log"}`} placeholder="Enter password"></input>
                     </label>
                     <span className={`error-msg ${!logFail ? "" : "error-msg-show"}`}>Email or Password is Incorrect</span>
-                    <button className="landing__form--button" >Sign In</button>
+                    <button className="landing__form--button" >Login</button>
                 </form>
                 <div className="landing__cta" onClick={toSignup}>
                     <span className="landing__cta--label">No account?</span>
