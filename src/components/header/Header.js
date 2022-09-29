@@ -18,7 +18,7 @@ const Header = () => {
         return (
             <header className="header">
                 <div className="header__left">
-                    <span className="header__name">VirtuPill</span>
+                    <span className="header__name">Pillable</span>
                     <img src={Logo} alt="Logo" className="header__logo"></img>
                 </div>
                 <nav className="header__nav">
@@ -34,7 +34,7 @@ const Header = () => {
         return (
             <header className="header">
                 <div className="header__left">
-                    <span className="header__name">VirtuPill</span>
+                    <span className="header__name">Pillable</span>
                     <img src={Logo} alt="Logo" className="header__logo"></img>
                 </div>
                 <nav className="header__nav">

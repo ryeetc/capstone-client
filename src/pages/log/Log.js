@@ -8,7 +8,7 @@ import { v4 as uuid } from 'uuid';
 
 const Log = () => {
 
-    document.title = "VirtuPill Log"
+    document.title = "Pillable Log"
 
     const token = localStorage.getItem("authToken")
 
