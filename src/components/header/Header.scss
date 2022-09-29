@@ -57,10 +57,11 @@
         }
 }
 
-// .active {
-//     box-shadow: 
-//             inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
-//             inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
-//             1px 1px 5px 0 rgba(0, 0, 0, 0.18),
-//             -1px -1px 5px 0 rgba(255, 255, 255, 0.8);
-// }
+.active {
+    border: 3px solid cornflowerblue;
+    box-shadow: 
+            inset 5px 5px 10px 0 rgba(0, 0, 0, 0.1),
+            inset -5px -5px 10px 0 rgba(255, 255, 255, 0.8),
+            1px 1px 5px 0 rgba(0, 0, 0, 0.18),
+            -1px -1px 5px 0 rgba(255, 255, 255, 0.8);
+}

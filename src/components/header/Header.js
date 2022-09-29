@@ -24,7 +24,7 @@ const Header = () => {
                 <nav className="header__nav">
                     <NavLink className="nav__link" to="/profile">Profile</NavLink>
                     <NavLink className="nav__link" to="/add">Add Med</NavLink>
-                    <NavLink className="nav__link" to="/" onClick={handleLogout}>Logout</NavLink>
+                    <NavLink className="nav__link" end to="/" onClick={handleLogout}>Logout</NavLink>
                 </nav>
             </header>
         )
@@ -38,7 +38,7 @@ const Header = () => {
                     <img src={Logo} alt="Logo" className="header__logo"></img>
                 </div>
                 <nav className="header__nav">
-                    <NavLink className="nav__link" to="/">Login</NavLink>
+                    <NavLink className="nav__link" to="/" end>Login</NavLink>
                     <NavLink className="nav__link" to="/register">Register</NavLink>
                 </nav>
             </header>
